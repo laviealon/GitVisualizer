@@ -14,10 +14,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
 
-if __name__ == '__main__':
-    Handler = CustomHandler
+def run_server(timeout=TIMEOUT, port=PORT, forever=False):
+    """Runs the serve at localhost:<port> for <timeout> seconds. If <forever> is True, then the server will run forever.
 
-    httpd = socketserver.TCPServer(("", PORT), Handler)
+    Args:
+        timeout (int, optional): Defaults to TIMEOUT=10 s.
+        port (int, optional): Defaults to PORT=8000.
+        forever (bool, optional): defaults to False.
+    """
+    handler = CustomHandler
+
+    httpd = socketserver.TCPServer(("", PORT), handler)
     print("serving at ", f"http://localhost:{PORT}/")
 
     start_time = time.time()
@@ -25,4 +32,3 @@ if __name__ == '__main__':
         httpd.handle_request()
 
     httpd.server_close()
-
