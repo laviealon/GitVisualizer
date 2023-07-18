@@ -1,6 +1,5 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from pyvis.network import Network
 
 
 class GraphVisualization:
@@ -17,7 +16,6 @@ class GraphVisualization:
         pos = {1: [2, 5], 2: [2, 4], 3: [2, 3], 4: [2, 2], 5: [2, 1]}
         nx.draw_networkx(G, pos)
         plt.savefig("graph.png")
-
 
 
 if __name__ == '__main__':
