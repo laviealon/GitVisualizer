@@ -4,7 +4,7 @@ import threading
 import time
 
 PORT = 8000
-FILE_PATH = '/git_graph.txt'
+FILE_PATH = '/graph.png'
 TIMEOUT = 10  # in seconds
 
 

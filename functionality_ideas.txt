@@ -1,0 +1,6 @@
+IDEAS
+- allow user to display graph in web browser or as a Python plot
+- allow user to click on nodes to see commit message
+
+
+

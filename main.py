@@ -2,11 +2,10 @@ import webbrowser
 import server
 
 
-def open_webpage(url):
-    webbrowser.open(url)
+def open_webpage():
+    endpoint = server.start_server(port=4000)
+    webbrowser.open_new_tab(endpoint)
 
 
 if __name__ == '__main__':
-    endpoint = server.start_server()
-    open_webpage(endpoint)
-
+    open_webpage()
