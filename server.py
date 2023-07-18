@@ -1,5 +1,6 @@
 import http.server
 import socketserver
+import threading
 import time
 
 PORT = 8000
@@ -32,3 +33,9 @@ def run_server(timeout=TIMEOUT, port=PORT, forever=False):
         httpd.handle_request()
 
     httpd.server_close()
+
+
+def start_server():
+    server_thread = threading.Thread(target=run_server)
+    server_thread.start()
+    return f'http://localhost:{PORT}'
