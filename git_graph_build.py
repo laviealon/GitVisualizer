@@ -17,14 +17,15 @@ def build_graph():
             if commit.parents:
                 for parent in commit.parents:
                     G.add_edge(parent.hexsha[:2], commit.hexsha[:2])
-            else:
-                pos[commit.hexsha[:2]] = [2, 10]
     return G
 
 
 def visualize_graph(G):
-    nx.draw_networkx(G)
+    vertical_positions = {node: (0, index) for index, node in enumerate(G.nodes)}
+    pos = nx.spring_layout(G, pos=vertical_positions, fixed=vertical_positions.keys())
+    nx.draw(G, pos, with_labels=True, node_size=1000, node_color='lightblue', font_size=12, font_weight='bold')
     plt.savefig("graph.png")
+    plt.show()
 
 
 if __name__ == '__main__':
