@@ -7,7 +7,6 @@ repo = git.Repo(search_parent_directories=True)
 
 def build_graph():
     G = nx.Graph()
-    pos = {}
     for branch in repo.branches:
         print(f'Branch: {branch.name}')
         commits = list(repo.iter_commits(branch))
