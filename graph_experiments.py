@@ -7,3 +7,5 @@ if __name__ == '__main__':
     print(G.nodes())
     print(G.edges()
 )
+
+    sdffs
